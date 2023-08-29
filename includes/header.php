@@ -34,6 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="premiados.php">Premiados</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="listPremiados.php">Lista de Premiados</a>
+                    </li>
                 </ul>
             </div>
         </div>
