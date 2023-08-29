@@ -53,8 +53,8 @@
                         <?php
        
       
-       $query=mysqli_query($conn," SELECT * FROM alumnos a
-       INNER JOIN asistencia asis ON  a.dni=asis.dni ")or die(mysqli_error($con));
+       $query=mysqli_query($conn,"SELECT * FROM alumnos a 
+       INNER JOIN ganadores g ON a.dni = g.dnig ")or die(mysqli_error($con));
          
          while($row=mysqli_fetch_array($query)){
            $id=$row['id'];

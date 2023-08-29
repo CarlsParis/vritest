@@ -54,7 +54,7 @@ if (isset($_GET["query"])) {
                                 </style>
                             </head>
                             <body>
-                                <div id="alertBox" class="alert">GANADOR REGISTRADO</div>
+                                <div id="alertBox" class="alert">GANADOR YA PREMIADO</div>
 
                                 <script type="text/javascript">
                                     setTimeout(function() {
@@ -67,8 +67,8 @@ if (isset($_GET["query"])) {
                         <?php } 
         else{
         {
-        mysqli_query($conn,"INSERT INTO asistencia(dni,estado)
-            VALUES('$dnibusqueda','$estado')")or die(mysqli_error($conn));
+        mysqli_query($conn,"INSERT INTO ganadores(dnig)
+            VALUES('$dnibusqueda')")or die(mysqli_error($conn));
         }			
             // echo "<script type='text/javascript'>alert('Asistencia agregado');</script>";	
             // echo "<script>document.location='../index.php'</script>";  
@@ -96,7 +96,7 @@ if (isset($_GET["query"])) {
                 </style>
             </head>
             <body>
-                <div id="alertBox" class="alert">GANADOR YA PREMIADO</div>
+                <div id="alertBox" class="alert">GANADOR REGISTRADO</div>
 
                 <script type="text/javascript">
                     setTimeout(function() {
@@ -112,7 +112,7 @@ if (isset($_GET["query"])) {
         }   
             
 
-        header("Refresh: 1.5; URL=../index.php");
+        header("Refresh: 1.5; URL=../premiados.php");
 
         // echo "<script type='text/javascript'>
         
@@ -162,7 +162,7 @@ if (isset($_GET["query"])) {
         
             // header("Refresh: 1; URL=../index.php");
             
-    header("Refresh: 1.5; URL=../index.php");
+    header("Refresh: 1.5; URL=../premiados.php");
             
     }
 } else {
