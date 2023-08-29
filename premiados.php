@@ -1,12 +1,12 @@
 
 <?php include('includes/header.php') ?>
 <?php include('db/conection.php') ?>
-<div class="d-flex justify-conter-center align-items-center" style="min-height: 100vh;">
+<div class="d-flex justify-conter-center align-items-center" style="min-height: calc(100vh - 60px);">
 
     <div class="container">
         <div class="search_container px-5">
             <div class="container px-5">
-                <h3 class="text-center">Alumnos Premiados</h3>
+                <h4 class="text-center">Alumnos Premiados</h4>
                 <br>
                 <div class="container px-5">
                     <div class="container px-5">

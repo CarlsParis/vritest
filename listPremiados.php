@@ -27,7 +27,7 @@
     <body>
         <div class="container my-4">
             <div class="container">
-                <h3 class="text-center">Lista de Asistentes al evento 08/31/23</h3>
+                <h4 class="text-center">Lista de Estudiantes Premiados</h4>
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
