@@ -40,5 +40,9 @@
     display: none;
 }
 
-.display_none{
+.img-center{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
