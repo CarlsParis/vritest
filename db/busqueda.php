@@ -32,7 +32,7 @@ if (isset($_GET["query"])) {
                                 <style>
                                     .alert {
                                         background-color: yellow;
-                                        color: white;
+                                        color: black;
                                         padding: 10px;
                                         position: fixed;
                                         top: 0;
