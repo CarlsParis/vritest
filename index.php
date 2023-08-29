@@ -7,12 +7,20 @@
 
 <div class="search_container">
     <form action="db/busqueda.php" method="GET">
-        <input type="text" name="query" autofocus placeholder="Buscar  DNI">
+        <input type="text" min="1" max="8" id="dni" name="query"  required autofocus placeholder="Buscar  DNI">
         <input type="submit" value="Buscar">
     </form>
 </div>
 
-<input class="input_hiden" type="text" id="codigo" placeholder="Enfoca este input y usa el lector">
+<script>
+    var input=  document.getElementById('dni');
+input.addEventListener('input',function(){
+  if (this.value.length > 8) 
+     this.value = this.value.slice(0,8); 
+})
+</script>
+<!-- 
+<input class="input_hiden" type="text" id="codigo" placeholder="Enfoca este input y usa el lector"> -->
 
 </div>
 <?php include('includes/footer.php') ?>

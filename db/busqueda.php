@@ -16,10 +16,29 @@ if (isset($_GET["query"])) {
             echo "<p>" . $row["paterno"] . "</p>";
             echo "<p>" . $row["materno"] . "</p>";
             echo "<p>" . $row["nombres"] . "</p>";
-            echo "<p>" . $row["programa"] . "</p>";
+            echo "<p>" . $row["programa"] . "</p>"; 
         }
+
+        
+        header("Refresh: 1.5; URL=../index.php");
+
+        // echo "<script type='text/javascript'>
+        
+        // alert('Miembro nuevo con éxito agregado');</script>";	
+
+        // echo "<script>document.location='../index.php'</script>";
+
     } else {
         echo "No se encontraron resultados.";
+
+
+    
+
+
+        
+            header("Refresh: 1; URL=../index.php");
+            
+
     }
 } else {
     echo "Ingrese un término de búsqueda.";
