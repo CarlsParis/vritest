@@ -3,10 +3,10 @@
 <?php
 
 if (isset($_GET["query"])) {
-    $query = $_GET["query"];
+    $dnibusqueda = $_GET["query"];
 
     // Realizar la consulta en la base de datos
-    $sql = "SELECT * FROM alumnos WHERE dni LIKE '%$query%'";
+    $sql = "SELECT * FROM alumnos WHERE dni LIKE '%$dnibusqueda%'";
     $result = mysqli_query($conn, $sql);
 
     // Mostrar los resultados
@@ -19,8 +19,23 @@ if (isset($_GET["query"])) {
             echo "<p>" . $row["programa"] . "</p>"; 
         }
 
-        
-        
+                 $query=mysqli_query($conn,"SELECT * FROM asistencia WHERE dni = '$dnibusqueda' ")or die(mysqli_error($con));
+                 $count=mysqli_num_rows($query);		
+                        if ($count>0)
+                        {
+                            echo "<script type='text/javascript'>alert('Estudiante ya registrado');</script>";	
+                            echo "<script>document.location='../index.php'</script>";  
+                        }
+        else{
+        {
+        mysqli_query($conn,"INSERT INTO asistencia(dni)
+            VALUES('$dnibusqueda')")or die(mysqli_error($conn));
+        }			
+            echo "<script type='text/javascript'>alert('Asistencia agregado');</script>";	
+            echo "<script>document.location='../index.php'</script>";  
+
+}
+
         header("Refresh: 1.5; URL=../index.php");
 
         // echo "<script type='text/javascript'>
