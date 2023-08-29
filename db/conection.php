@@ -3,6 +3,7 @@
     $hostname = "localhost";
     $database = "ingresantes";
     $user = "root";
+    // $user = "vrcad";
     $password = "";
     //    $password = "#Mn5542hg";
 
