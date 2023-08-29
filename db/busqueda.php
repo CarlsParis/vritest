@@ -7,7 +7,10 @@ if (isset($_GET["query"])) {
     $estado  = '1';
 
     // Realizar la consulta en la base de datos
-    $sql = "SELECT * FROM alumnos WHERE dni LIKE '%$dnibusqueda%'";
+    // $sql = "SELECT * FROM alumnos WHERE dni LIKE '%$dnibusqueda%'";
+
+    $sql = "SELECT * FROM alumnos WHERE dni = $dnibusqueda ";
+
     $result = mysqli_query($conn, $sql); ?>
 
 
