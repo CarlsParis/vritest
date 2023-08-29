@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+.head_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.main_nav{
+    height: 80px;
+    background-color: #282828;
+    display: flex;
+    align-items: center;
+}
+
+.main_nav ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.main_nav li{
+    list-style: none;
+}
+.main_nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.input-hiden{
+    display: none;
+}
+
+.display_none{
+}
