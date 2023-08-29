@@ -20,6 +20,7 @@ if (isset($_GET["query"])) {
         }
 
         
+        
         header("Refresh: 1.5; URL=../index.php");
 
         // echo "<script type='text/javascript'>
