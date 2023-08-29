@@ -28,11 +28,11 @@ if (isset($_GET["query"])) {
                         }
         else{
         {
-        mysqli_query($conn,"INSERT INTO asistencia(dni)
+        mysqli_query($conn,"INSERT INTO asistencia(dni,estado)
             VALUES('$dnibusqueda')")or die(mysqli_error($conn));
         }			
-            echo "<script type='text/javascript'>alert('Asistencia agregado');</script>";	
-            echo "<script>document.location='../index.php'</script>";  
+            // echo "<script type='text/javascript'>alert('Asistencia agregado');</script>";	
+            // echo "<script>document.location='../index.php'</script>";  
 
 }
 
