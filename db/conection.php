@@ -4,6 +4,7 @@
     $database = "ingresantes";
     $user = "root";
     $password = "";
+    //    $password = "#Mn5542hg";
 
 
     $conn = mysqli_connect($hostname, $user, $password, $database);
