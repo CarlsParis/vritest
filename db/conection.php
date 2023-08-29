@@ -3,7 +3,9 @@
     $hostname = "localhost";
     $database = "ingresantes";
     $user = "root";
+    // $user = "vrcad";
     $password = "";
+    //    $password = "#Mn5542hg";
 
 
     $conn = mysqli_connect($hostname, $user, $password, $database);
