@@ -111,7 +111,7 @@ if (isset($_GET["query"])) {
         }   
             
 
-        header("Refresh: 1.2; URL=../index.php");
+        header("Refresh: 0.7; URL=../index.php");
 
         // echo "<script type='text/javascript'>
         
@@ -161,7 +161,7 @@ if (isset($_GET["query"])) {
         
             // header("Refresh: 1; URL=../index.php");
             
-    header("Refresh: 1.5; URL=../index.php");
+    header("Refresh: 0.7; URL=../index.php");
             
     }
 } else {
