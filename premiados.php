@@ -10,7 +10,7 @@
                 <br>
                 <div class="container px-5">
                     <div class="container px-5">
-                        <form class="row g-3" action="db/busqueda.php" method="GET">
+                        <form class="row g-3" action="db/registarpremiados.php" method="GET">
                             <input class="form-control" type="text" min="1" max="8" id="dni" name="query" required autofocus placeholder="Buscar  DNI">
                             <input class="btn btn-primary" type="submit" value="Buscar">
                         </form>

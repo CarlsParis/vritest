@@ -7,7 +7,8 @@ if (isset($_GET["query"])) {
     $estado  = '1';
 
     // Realizar la consulta en la base de datos
-    $sql = "SELECT * FROM alumnos WHERE dni LIKE '%$dnibusqueda%'";
+    $sql = " SELECT * FROM alumnos a
+    INNER JOIN asistencia asis ON a.dni = asis.dni WHERE asis.dni LIKE '%$dnibusqueda%'";
     $result = mysqli_query($conn, $sql); ?>
 
 
@@ -26,7 +27,7 @@ if (isset($_GET["query"])) {
             echo "<p>" . $row["programa"] . "</p>"; 
         }
 
-                 $query=mysqli_query($conn,"SELECT * FROM asistencia WHERE dni = '$dnibusqueda' ")or die(mysqli_error($con));
+                 $query=mysqli_query($conn,"SELECT * FROM ganadores WHERE dnig = '$dnibusqueda' ")or die(mysqli_error($con));
                  $count=mysqli_num_rows($query);		
                         if ($count>0)
                         { ?>
@@ -53,7 +54,7 @@ if (isset($_GET["query"])) {
                                 </style>
                             </head>
                             <body>
-                                <div id="alertBox" class="alert">Estudiante ya registrado</div>
+                                <div id="alertBox" class="alert">GANADOR REGISTRADO</div>
 
                                 <script type="text/javascript">
                                     setTimeout(function() {
@@ -95,7 +96,7 @@ if (isset($_GET["query"])) {
                 </style>
             </head>
             <body>
-                <div id="alertBox" class="alert">ASISTENCIAS REGISTRADO</div>
+                <div id="alertBox" class="alert">GANADOR YA PREMIADO</div>
 
                 <script type="text/javascript">
                     setTimeout(function() {
@@ -145,7 +146,7 @@ if (isset($_GET["query"])) {
             </style>
         </head>
         <body>
-            <div id="alertBox" class="alert">NO ERES CACHIMBO</div>
+            <div id="alertBox" class="alert">NO REGISTRO ASISTENCIA</div>
 
             <script type="text/javascript">
                 setTimeout(function() {
