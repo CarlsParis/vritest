@@ -26,6 +26,9 @@
     </head>
     <body>
         <div class="container my-4">
+            <div class="container">
+                <h3 class="text-center">Lista de Asistentes al evento 08/31/23</h3>
+            </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <table id="datatable_users" class="table table-striped">
@@ -33,7 +36,7 @@
                             Asistentes
                         </caption>
                         <thead>
-                            <tr>
+                            <tr class="table-dark">
                                 <th class="centered">#</th>
                                 <th class="centered">DNI</th>
                                 <th class="centered">NOMBRES</th>

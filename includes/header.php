@@ -32,7 +32,7 @@
                         <a class="nav-link" href="asistentes.php">Asistentes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true">Premiados</a>
+                        <a class="nav-link" href="premiados.php">Premiados</a>
                     </li>
                 </ul>
             </div>
