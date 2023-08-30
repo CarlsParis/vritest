@@ -9,7 +9,7 @@ if (isset($_GET["query"])) {
     // Realizar la consulta en la base de datos
     // $sql = "SELECT * FROM alumnos WHERE dni LIKE '%$dnibusqueda%'";
 
-    $sql = "SELECT * FROM alumnos WHERE dni = $dnibusqueda ";
+    $sql = "SELECT * FROM alumnos  a INNER JOIN program p ON a.programa_id = p.prog_id WHERE dni = $dnibusqueda ";
 
     $result = mysqli_query($conn, $sql); ?>
 
@@ -69,8 +69,8 @@ if (isset($_GET["query"])) {
                         <?php } 
         else{
         {
-        mysqli_query($conn,"INSERT INTO asistencia(dni,estado)
-            VALUES('$dnibusqueda','$estado')")or die(mysqli_error($conn));
+        mysqli_query($conn,"INSERT INTO asistencia(dni,estado,fecharegistro)
+            VALUES('$dnibusqueda','$estado',CURRENT_TIMESTAMP())")or die(mysqli_error($conn));
         }			
             // echo "<script type='text/javascript'>alert('Asistencia agregado');</script>";	
             // echo "<script>document.location='../index.php'</script>";  
