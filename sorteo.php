@@ -12,13 +12,53 @@
 <form action="" method="post">
     <label for="programa">Programa:</label>
     <select name="programa" id="programa">
-
-        <option value="1">Estado 1</option>
-        <option value="0">Estado 2</option>
-
-
+                        <option value="1">INGENIERIA AGRONOMICA</option>
+                        <option value="2">INGENIERIA AGROINDUSTRIAL</option>
+                        <option value="3">INGENIERIA TOPOGRAFICA Y AGRIMENSURA</option>
+                        <option value="4">MEDICINA VETERINARIA Y ZOOTECNIA</option>
+                        <option value="5">INGENIERIA ECONOMICA</option>
+                        <option value="6">CIENCIAS CONTABLES</option>
+                        <option value="7">ADMINISTRACION</option>
+                        <option value="8">TRABAJO SOCIAL</option>
+                        <option value="9">ENFERMERIA</option>
+                        <option value="10">INGENIERIA DE MINAS</option>
+                        <option value="11">HUMANIDADES</option>
+                        <option value="12">SOCIOLOGIA</option>
+                        <option value="13">TURISMO</option>
+                        <option value="14">ANTROPOLOGIA</option>
+                        <option value="15">CIENCIAS DE LA COMUNICACION SOCIAL</option>
+                        <option value="16">ARTE: ARTES PLASTICAS</option>
+                        <option value="17">ARTE: DANZA</option>
+                        <option value="18">ARTE: MUSICA</option>
+                        <option value="19">ARTE: TEATRO</option>
+                        <option value="20">BIOLOGIA: ECOLOGIA </option>
+                        <option value="21">BIOLOGIA: MICROBIOLOGIA Y LABORATORIO CLINICO</option>
+                        <option value="22">BIOLOGIA: PESQUERIA </option>
+                        <option value="23">EDUC. SEC.: CIENCIA, TECNOLOGIA Y AMBIENTE </option>
+                        <option value="24">EDUC. SEC.: CIENCIAS SOCIALES</option>
+                        <option value="25">EDUC. SEC.: LIT. PSICOLOGIA Y FILOSOFIA</option>
+                        <option value="26">EDUC. SEC.: MATEMATICA, FISICA, COMP. E INFORMATICA</option>
+                        <option value="27">EDUCACION PRIMARIA</option>
+                        <option value="28">EDUCACION INICIAL</option>
+                        <option value="29">EDUCACION FISICA</option>
+                        <option value="30">INGENIERIA ESTADISTICA E INFORMATICA</option>
+                        <option value="31">DERECHO</option>
+                        <option value="32">INGENIERIA QUIMICA</option>
+                        <option value="33">ODONTOLOGIA</option>
+                        <option value="34">NUTRICION HUMANA</option>
+                        <option value="35">INGENIERIA GEOLOGICA</option>
+                        <option value="36">INGENIERIA METALURGICA</option>
+                        <option value="37">INGENIERIA CIVIL</option>
+                        <option value="38">ARQUITECTURA Y URBANISMO</option>
+                        <option value="39">CIENCIAS FISICO MATEMATICAS: FISICA</option>
+                        <option value="40">CIENCIAS FISICO MATEMATICAS: MATEMATICAS</option>
+                        <option value="41">INGENIERIA AGRICOLA</option>
+                        <option value="42">MEDICINA HUMANA</option>
+                        <option value="43">INGENIERIA MECANICA ELECTRICA</option>
+                        <option value="44">INGENIERIA ELECTRONICA</option>
+                        <option value="45">INGENIERIA DE SISTEMAS</option>
     </select>
-    <input type="submit" name="filtrar" value="Filtrar">
+    <input type="submit" name="filtrar" value="filtrar">
 </form>
 
 <form action="" method="post">
@@ -28,9 +68,9 @@
 <table border="1">
     <tr>
         <th>ID </th>
-        <th>DNI</th>
-        <th>NOMBRES</th>
-        <th>APELLIDOS</th>
+        <th>DNI </th>
+        <th>NOMBRES </th>
+        <th>APELLIDOS </th>
         <!-- Agrega más columnas según tu esquema de base de datos -->
     </tr>
 
@@ -39,12 +79,14 @@
 
 
     if(isset($_POST['filtrar'])) {
-        $filtro_estado = $_POST['estado'];
-        $sql = "SELECT * FROM asistencia  asis
-        INNER JOIN alumnos a ON asis.dni = a.dni  WHERE estado = '$filtro_estado'";
-    } elseif(isset($_POST['sortear']) && isset($_POST['filtrar'])) {
-        $filtro_estado = $_POST['estado'];
-        $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni  WHERE estado = '$filtro_estado' ORDER BY RAND() LIMIT 10";
+        $filtro_programa = $_POST['programa'];
+        $sql = "SELECT * FROM  alumnos a 
+        INNER JOIN  asistencia  asis  ON  a.dni = asis.dni
+        INNER JOIN program p ON a.programa_id = p.prog_id  WHERE a.programa_id = '$filtro_programa'";
+
+    } elseif(isset($_POST['sortear']) && ($_POST['filtrar'])) {
+        $filtro_programa = $_POST['programa'];
+        $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni  WHERE programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
     } else {
         $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni ";
     }
@@ -55,10 +97,10 @@
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td> # </td>";
-            // echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["dni"] . "</td>";
-            // echo "<td>" . $row["nombre"] . "</td>";
-            // Agrega más columnas según tu esquema de base de datos
+            echo "<td>" . $row["nombres"] . "</td>";
+            echo "<td>" . $row["programa"] . "</td>";
+
             echo "</tr>";
         }
     } else {
@@ -71,58 +113,3 @@
 
 </body>
 </html>
-
-
-
-<div class="form-group">
-                <label for="date">SELECIONE PROG. DE ESTUDIO:</label>
-                <!-- <input type="text" name="usuario"> -->
-                <select class="form-control select2" name="usuario" required>
-                    <tr>
-                        <option value="INGENIERIA AGRONOMICA">INGENIERIA AGRONOMICA</option>
-                        <option value="INGENIERIA AGROINDUSTRIAL">INGENIERIA AGROINDUSTRIAL</option>
-                        <option value="INGENIERIA TOPOGRAFICA Y AGRIMENSURA">INGENIERIA TOPOGRAFICA Y AGRIMENSURA</option>
-                        <option value="MEDICINA VETERINARIA Y ZOOTECNIA">MEDICINA VETERINARIA Y ZOOTECNIA</option>
-                        <option value="INGENIERIA ECONOMICA">INGENIERIA ECONOMICA</option>
-                        <option value="CIENCIAS CONTABLES">CIENCIAS CONTABLES</option>
-                        <option value="ADMINISTRACION">ADMINISTRACION</option>
-                        <option value="TRABAJO SOCIAL">TRABAJO SOCIAL</option>
-                        <option value="ENFERMERIA">ENFERMERIA</option>
-                        <option value="INGENIERIA DE MINAS">INGENIERIA DE MINAS</option>
-                        <option value="HUMANIDADES">HUMANIDADES</option>
-                        <option value="SOCIOLOGIA">SOCIOLOGIA</option>
-                        <option value="TURISMO">TURISMO</option>
-                        <option value="ANTROPOLOGIA">ANTROPOLOGIA</option>
-                        <option value="CIENCIAS DE LA COMUNICACION SOCIAL">CIENCIAS DE LA COMUNICACION SOCIAL</option>
-                        <option value="ARTE: ARTES PLASTICAS">ARTE: ARTES PLASTICAS</option>
-                        <option value="ARTE: DANZA">ARTE: DANZA</option>
-                        <option value="ARTE: MUSICA">ARTE: MUSICA</option>
-                        <option value="ARTE: TEATRO">ARTE: TEATRO</option>
-                        <option value="BIOLOGIA: ECOLOGIA ">BIOLOGIA: ECOLOGIA </option>
-                        <option value="BIOLOGIA: MICROBIOLOGIA Y LABORATORIO CLINICO">BIOLOGIA: MICROBIOLOGIA Y LABORATORIO CLINICO</option>
-                        <option value="BIOLOGIA: PESQUERIA ">BIOLOGIA: PESQUERIA </option>
-                        <option value="EDUC. SEC.: CIENCIA, TECNOLOGIA Y AMBIENTE ">EDUC. SEC.: CIENCIA, TECNOLOGIA Y AMBIENTE </option>
-                        <option value="EDUC. SEC.: CIENCIAS SOCIALES">EDUC. SEC.: CIENCIAS SOCIALES</option>
-                        <option value="EDUC. SEC.: LIT. PSICOLOGIA Y FILOSOFIA">EDUC. SEC.: LIT. PSICOLOGIA Y FILOSOFIA</option>
-                        <option value="EDUC. SEC.: MATEMATICA, FISICA, COMP. E INFORMATICA">EDUC. SEC.: MATEMATICA, FISICA, COMP. E INFORMATICA</option>
-                        <option value="EDUCACION PRIMARIA">EDUCACION PRIMARIA</option>
-                        <option value="EDUCACION INICIAL">EDUCACION INICIAL</option>
-                        <option value="EDUCACION FISICA">EDUCACION FISICA</option>
-                        <option value="INGENIERIA ESTADISTICA E INFORMATICA">INGENIERIA ESTADISTICA E INFORMATICA</option>
-                        <option value="DERECHO">DERECHO</option>
-                        <option value="INGENIERIA QUIMICA">INGENIERIA QUIMICA</option>
-                        <option value="ODONTOLOGIA">ODONTOLOGIA</option>
-                        <option value="NUTRICION HUMANA">NUTRICION HUMANA</option>
-                        <option value="INGENIERIA GEOLOGICA">INGENIERIA GEOLOGICA</option>
-                        <option value="INGENIERIA METALURGICA">INGENIERIA METALURGICA</option>
-                        <option value="INGENIERIA CIVIL">INGENIERIA CIVIL</option>
-                        <option value="ARQUITECTURA Y URBANISMO">ARQUITECTURA Y URBANISMO</option>
-                        <option value="CIENCIAS FISICO MATEMATICAS: FISICA">CIENCIAS FISICO MATEMATICAS: FISICA</option>
-                        <option value="CIENCIAS FISICO MATEMATICAS: MATEMATICAS">CIENCIAS FISICO MATEMATICAS: MATEMATICAS</option>
-                        <option value="INGENIERIA AGRICOLA">INGENIERIA AGRICOLA</option>
-                        <option value="MEDICINA HUMANA">MEDICINA HUMANA</option>
-                        <option value="INGENIERIA MECANICA ELECTRICA">INGENIERIA MECANICA ELECTRICA</option>
-                        <option value="INGENIERIA ELECTRONICA">INGENIERIA ELECTRONICA</option>
-                        <option value="INGENIERIA DE SISTEMAS">INGENIERIA DE SISTEMAS</option>
-                </select>
-            </div><!-- /.form group -->

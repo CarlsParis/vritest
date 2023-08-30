@@ -42,8 +42,8 @@
                                 <th class="centered">NOMBRES</th>
                                 <th class="centered">APELLIDO PATERNO</th>
                                 <th class="centered">APELLIDO MATERNO</th>
-                                <th class="centered">ESTADO</th>
-                                <th class="centered">OPCIONES</th>
+                                <th class="centered">PROGRAMA</th>
+                                <!-- <th class="centered">OPCIONES</th> -->
                             </tr>
                         </thead>
 
@@ -54,7 +54,8 @@
        
       
        $query=mysqli_query($conn," SELECT * FROM alumnos a
-       INNER JOIN asistencia asis ON  a.dni=asis.dni ")or die(mysqli_error($con));
+       INNER JOIN asistencia asis ON  a.dni=asis.dni 
+       INNER JOIN program p ON a.programa_id = p.prog_id")or die(mysqli_error($con));
          
          while($row=mysqli_fetch_array($query)){
            $id=$row['id'];
@@ -62,6 +63,7 @@
            $nombre=$row['nombres'];
            $paterno=$row['paterno'];
            $materno=$row['materno'];
+           $programa=$row['programa'];
         
              ?>
                <?php 
@@ -73,6 +75,7 @@
                <td><?php echo $nombre;?></td>
                <td><?php echo $paterno;?></td>
                <td><?php echo $materno;?></td>
+               <td><?php echo $programa;?></td>
                </tr>
 
              
