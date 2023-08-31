@@ -59,11 +59,13 @@
                         <option value="45">INGENIERIA DE SISTEMAS</option>
     </select>
     <input type="submit" name="filtrar" value="filtrar">
-</form>
 
-<form action="" method="post">
     <input type="submit" name="sortear" value="Sortear de Nuevo">
 </form>
+
+<!-- <form action="" method="post">
+    <input type="submit" name="sortear" value="Sortear de Nuevo">
+</form> -->
 
 <table border="1">
     <tr>
@@ -76,8 +78,10 @@
 
     <?php
 
+// $a= $_POST['filtrar'];
+// $b = $_POST['programa'];
 
-
+// $c=var_dump($_POST['programa']);
 
 if(isset($_POST['filtrar'])  ) {
     $filtro_programa = $_POST['programa'];
@@ -91,9 +95,14 @@ if(isset($_POST['filtrar'])  ) {
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td> # </td>";
+            echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["dni"] . "</td>";
             echo "<td>" . $row["nombres"] . "</td>";
             // echo "<td>" . $row["programa"] . "</td>";
+
+            // echo $a;
+            // echo $b;
+            // echo $c;
 
             echo "</tr>";
         }
@@ -102,16 +111,24 @@ if(isset($_POST['filtrar'])  ) {
     }
 
 
-} elseif(isset($_POST['sortear']) ) {
+
+} 
+
+
+
+
+if(isset($_POST['sortear'])) {
+
     $filtro_programa = $_POST['programa'];
-    $sql1 = "SELECT * FROM alumnos where  programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
+    $sql1 = "SELECT * FROM alumnos WHERE  programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
 
-    $resulta = $conn->query($sql1);
+    $result = $conn->query($sql1);
 
-    if ($resulta->num_rows > 0) {
-        while ($row = $resulta->fetch_assoc()) {
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td> # </td>";
+            echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["dni"] . "</td>";
             echo "<td>" . $row["nombres"] . "</td>";
             // echo "<td>" . $row["programa"] . "</td>";
@@ -123,8 +140,8 @@ if(isset($_POST['filtrar'])  ) {
     }
 
 
-    
-} 
+
+}
 //else {
 //     $sql = "SELECT * FROM alumnos asis INNER JOIN alumnos a ON asis.dni = a.dni where  a.programa_id = '$filtro_programa' ";
 // }
