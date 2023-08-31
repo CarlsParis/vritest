@@ -54,7 +54,7 @@ if (isset($_GET["query"])) {
                                 </style>
                             </head>
                             <body>
-                                <div id="alertBox" class="alert">GANADOR YA PREMIADO</div>
+                                <div id="alertBox" class="alert">SALIDA YA REGISTRADA</div>
 
                                 <script type="text/javascript">
                                     setTimeout(function() {
@@ -96,7 +96,7 @@ if (isset($_GET["query"])) {
                 </style>
             </head>
             <body>
-                <div id="alertBox" class="alert">GANADOR REGISTRADO</div>
+                <div id="alertBox" class="alert">SALIDA REGISTRADA</div>
 
                 <script type="text/javascript">
                     setTimeout(function() {
