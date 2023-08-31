@@ -6,7 +6,7 @@
     <div class="container">
         <div class="search_container px-5">
             <div class="container px-5">
-                <h4 class="text-center">Alumnos Premiados</h4>
+                <h4 class="text-center">REGISTAR SALIDA</h4>
                 <br>
                 <div class="container px-5">
                     <div class="container px-5">
