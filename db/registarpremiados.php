@@ -24,7 +24,7 @@ if (isset($_GET["query"])) {
             echo "<p>" . $row["paterno"] . "</p>";
             echo "<p>" . $row["materno"] . "</p>";
             echo "<p>" . $row["nombres"] . "</p>";
-            echo "<p>" . $row["programa"] . "</p>"; 
+            // echo "<p>" . $row["programa"] . "</p>"; 
         }
 
                  $query=mysqli_query($conn,"SELECT * FROM ganadores WHERE dnig = '$dnibusqueda' ")or die(mysqli_error($con));
@@ -67,8 +67,8 @@ if (isset($_GET["query"])) {
                         <?php } 
         else{
         {
-        mysqli_query($conn,"INSERT INTO ganadores(dnig)
-            VALUES('$dnibusqueda')")or die(mysqli_error($conn));
+        mysqli_query($conn,"INSERT INTO ganadores(dnig,fechar)
+            VALUES('$dnibusqueda',CURRENT_TIMESTAMP())")or die(mysqli_error($conn));
         }			
             // echo "<script type='text/javascript'>alert('Asistencia agregado');</script>";	
             // echo "<script>document.location='../index.php'</script>";  
