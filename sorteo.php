@@ -66,9 +66,13 @@
                         </div>
                     </form>
                 </div>
-                <!-- <form action="" method="post">
-    <input type="submit" name="sortear" value="Sortear de Nuevo">
-</form> -->
+
+
+                <form action="" method="post">
+                    <input type="submit" name="guardar" value="guardar ganadores">
+                </form>
+
+
                 <div class="container">
 
 
@@ -152,6 +156,11 @@
                                 echo "<tr><td colspan='3'>No se encontraron registros</td></tr>";
                             }
                         }
+
+                        
+
+
+                        
                         //else {
                         //     $sql = "SELECT * FROM alumnos asis INNER JOIN alumnos a ON asis.dni = a.dni where  a.programa_id = '$filtro_programa' ";
                         // }
