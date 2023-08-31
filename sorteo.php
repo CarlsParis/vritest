@@ -74,7 +74,7 @@
 
                     <table class="table table-striped" border="1">
                         <tr class="table-dark">
-                            <th class="centered">ID </th>
+                            <!-- <th class="centered">ID </th> -->
                             <th class="centered">DNI </th>
                             <th class="centered">NOMBRES </th>
                             <th class="centered">APELLIDOS PATERNO </th>
@@ -103,7 +103,7 @@
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
                                  //   echo "<td> # </td>";
-                                    echo "<td>" . $row["id"] . "</td>";
+                                    //echo "<td>" . $row["id"] . "</td>";
                                     echo "<td>" . $row["dni"] . "</td>";
                                     echo "<td>" . $row["nombres"] . "</td>";
                                     echo "<td>" . $row["paterno"] . "</td>";
@@ -136,7 +136,7 @@
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
                                   //  echo "<td> # </td>";
-                                    echo "<td>" . $row["id"] . "</td>";
+                                   // echo "<td>" . $row["id"] . "</td>";
                                     echo "<td>" . $row["dni"] . "</td>";
                                     echo "<td>" . $row["nombres"] . "</td>";
                                     echo "<td>" . $row["paterno"] . "</td>";
