@@ -14,6 +14,8 @@
                     <form action="" method="post">
                         <label class="h5" for="programa">Programa:</label>
                         <select class="form-select" name="programa" id="programa">
+
+                            <option value="0"> </option>
                             <option value="1">INGENIERIA AGRONOMICA</option>
                             <option value="2">INGENIERIA AGROINDUSTRIAL</option>
                             <option value="3">INGENIERIA TOPOGRAFICA Y AGRIMENSURA</option>
@@ -63,14 +65,15 @@
                         <div class="py-2">
                         <input class="btn btn-success" type="submit" name="filtrar" value="Filtrar">
                         <input class="btn btn-warning" type="submit" name="sortear" value="Sortear de Nuevo">
+                        <!-- <input class="btn btn-danger" type="submit" name="sortear" value="Sortear de Nuevo"> -->
                         </div>
                     </form>
                 </div>
 
 
-                <form action="" method="post">
+                <!-- <form action="" method="post">
                     <input type="submit" name="guardar" value="guardar ganadores">
-                </form>
+                </form> -->
 
 
                 <div class="container">
@@ -93,7 +96,7 @@
                         // $a= $_POST['filtrar'];
                         // $b = $_POST['programa'];
 
-                        $c = var_dump($_POST['programa']);
+                        // $c = var_dump($_POST['programa']);
 
                         if (isset($_POST['filtrar'])) {
                             $filtro_programa = $_POST['programa'];
@@ -133,6 +136,7 @@
                         if (isset($_POST['sortear'])) {
 
                             $filtro_programa = $_POST['programa'];
+
                             $sql1 = "SELECT * FROM alumnos a INNER JOIN asistencia asis ON a.dni = asis.dni 
                             inner join program p ON a.programa_id = p.prog_id where   a.programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
 
@@ -141,14 +145,13 @@
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
-                                  //  echo "<td> # </td>";
-                                   // echo "<td>" . $row["id"] . "</td>";
+                           
                                     echo "<td>" . $row["dni"] . "</td>";
                                     echo "<td>" . $row["nombres"] . "</td>";
                                     echo "<td>" . $row["paterno"] . "</td>";
                                     echo "<td>" . $row["materno"] . "</td>";
                                     echo "<td>" . $row["programa"] . "</td>";
-                                    // echo "<td>" . $row["programa"] . "</td>";
+              
 
                                     echo "</tr>";
                                 }
@@ -157,10 +160,7 @@
                             }
                         }
 
-                        
 
-
-                        
                         //else {
                         //     $sql = "SELECT * FROM alumnos asis INNER JOIN alumnos a ON asis.dni = a.dni where  a.programa_id = '$filtro_programa' ";
                         // }
