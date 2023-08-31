@@ -81,13 +81,13 @@
 // $a= $_POST['filtrar'];
 // $b = $_POST['programa'];
 
-// $c=var_dump($_POST['programa']);
+$c=var_dump($_POST['programa']);
 
 if(isset($_POST['filtrar'])  ) {
     $filtro_programa = $_POST['programa'];
 
 
-    $sql = "SELECT * FROM  alumnos where  programa_id = '$filtro_programa'";
+    $sql = "SELECT * FROM  alumnos a inner join program p ON a.programa_id = p.prog_id where  a.programa_id = '$filtro_programa'";
 
     $result = $conn->query($sql);
 
@@ -98,6 +98,7 @@ if(isset($_POST['filtrar'])  ) {
             echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["dni"] . "</td>";
             echo "<td>" . $row["nombres"] . "</td>";
+            echo "<td>" . $row["programa"] . "</td>";
             // echo "<td>" . $row["programa"] . "</td>";
 
             // echo $a;
@@ -120,7 +121,7 @@ if(isset($_POST['filtrar'])  ) {
 if(isset($_POST['sortear'])) {
 
     $filtro_programa = $_POST['programa'];
-    $sql1 = "SELECT * FROM alumnos WHERE  programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
+    $sql1 = "SELECT * FROM alumnos a inner join program p ON a.programa_id = p.prog_id WHERE  a.programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
 
     $result = $conn->query($sql1);
 
@@ -131,6 +132,7 @@ if(isset($_POST['sortear'])) {
             echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["dni"] . "</td>";
             echo "<td>" . $row["nombres"] . "</td>";
+            echo "<td>" . $row["programa"] . "</td>";
             // echo "<td>" . $row["programa"] . "</td>";
 
             echo "</tr>";
