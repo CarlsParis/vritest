@@ -41,7 +41,7 @@
                         <a class="nav-link" href="sorteo.php">SORTEO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Registar Ganadores</a>
+                        <a class="nav-link" href="registroGanadores.php">Registar Ganadores</a>
                     </li>
                 </ul>
             </div>
