@@ -78,18 +78,35 @@
 
 
 
-    if(isset($_POST['filtrar'])) {
-        $filtro_programa = $_POST['programa'];
-        $sql = "SELECT * FROM  alumnos a 
-        INNER JOIN  asistencia  asis  ON  a.dni = asis.dni
-        INNER JOIN program p ON a.programa_id = p.prog_id  WHERE a.programa_id = '$filtro_programa'";
 
-    } elseif(isset($_POST['sortear']) && ($_POST['filtrar'])) {
-        $filtro_programa = $_POST['programa'];
-        $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni  WHERE programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
-    } else {
-        $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni ";
-    }
+if(isset($_POST['filtrar'])  ) {
+    $filtro_programa = $_POST['programa'];
+    $sql = "SELECT * FROM  alumnos a 
+    INNER JOIN  asistencia  asis  ON  a.dni = asis.dni
+    INNER JOIN program p ON a.programa_id = p.prog_id  WHERE a.programa_id = '$filtro_programa'";
+
+} elseif(isset($_POST['sortear']) &&isset($_POST['filtrar'])) {
+    $filtro_programa = $_POST['programa'];
+    $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni  WHERE a.programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
+
+
+    
+} else {
+    $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni ";
+}
+
+    // if(isset($_POST['filtrar'])) {
+    //     $filtro_programa = $_POST['programa'];
+    //     $sql = "SELECT * FROM  alumnos a 
+    //     INNER JOIN  asistencia  asis  ON  a.dni = asis.dni
+    //     INNER JOIN program p ON a.programa_id = p.prog_id  WHERE a.programa_id = '$filtro_programa'";
+
+    // } elseif(isset($_POST['sortear']) && ($_POST['filtrar'])) {
+    //     $filtro_programa = $_POST['programa'];
+    //     $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni  WHERE programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
+    // } else {
+    //     $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni ";
+    // }
 
     $result = $conn->query($sql);
 
@@ -99,7 +116,7 @@
             echo "<td> # </td>";
             echo "<td>" . $row["dni"] . "</td>";
             echo "<td>" . $row["nombres"] . "</td>";
-            echo "<td>" . $row["programa"] . "</td>";
+            // echo "<td>" . $row["programa"] . "</td>";
 
             echo "</tr>";
         }
