@@ -29,16 +29,19 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Entrada</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="asistentes.php">Asistentes</a>
+                        <a class="nav-link" href="asistentes.php">Lista de Asistentes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="premiados.php">Premiados</a>
+                        <a class="nav-link" href="premiados.php">Salida</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="listPremiados.php">Lista de Premiados</a>
+                        <a class="nav-link" href="listPremiados.php">Lista de Salida</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="sorteo.php">SORTEO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Registar Ganadores</a>
                     </li>
                 </ul>
             </div>
