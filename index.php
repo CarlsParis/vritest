@@ -2,11 +2,13 @@
 <?php include('db/conection.php') ?>
 
 
-<div class="d-flex justify-conter-center align-items-center" style="min-height: calc(100vh - 60px);">
+<div class="d-flex justify-conter-center align-items-center  bg-custom" style="min-height: calc(100vh - 60px);">
 
-    <div class="container">
+    <div class="container ">
         <div class="search_container px-5">
             <div class="container px-5">
+                <h4 class="text-center">Registro de Asistencia</h4>
+                <br>
                 <div class="container px-5">
                     <div class="container px-5">
                         <form class="row g-3" action="db/busqueda.php" method="GET">
@@ -15,7 +17,6 @@
                         </form>
                         <div class="img-center">
                         <img src="assets/media/vracad_preview.png" alt="" class="img-fluid">
-
                         </div>
                     </div>
                 </div>

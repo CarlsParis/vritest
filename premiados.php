@@ -1,7 +1,7 @@
 
 <?php include('includes/header.php') ?>
 <?php include('db/conection.php') ?>
-<div class="d-flex justify-conter-center align-items-center" style="min-height: calc(100vh - 60px);">
+<div class="d-flex justify-conter-center align-items-center bg-custom2" style="min-height: calc(100vh - 60px);">
 
     <div class="container">
         <div class="search_container px-5">

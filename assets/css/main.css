@@ -46,3 +46,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.bg-custom{
+    background-color: #ACF068;
+}
+
+.bg-custom2{
+    background-color: #F5FF8C;
+}
