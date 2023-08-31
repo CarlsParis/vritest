@@ -77,7 +77,10 @@
                             <th class="centered">ID </th>
                             <th class="centered">DNI </th>
                             <th class="centered">NOMBRES </th>
-                            <th class="centered">APELLIDOS </th>
+                            <th class="centered">APELLIDOS PATERNO </th>
+                            <th class="centered">APELLIDOS MATERNO </th>
+                            <th class="centered">PROGRAMA DE ESTUDIO </th>
+
                             <!-- Agrega más columnas según tu esquema de base de datos -->
                         </tr>
 
@@ -99,10 +102,12 @@
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
-                                    echo "<td> # </td>";
+                                 //   echo "<td> # </td>";
                                     echo "<td>" . $row["id"] . "</td>";
                                     echo "<td>" . $row["dni"] . "</td>";
                                     echo "<td>" . $row["nombres"] . "</td>";
+                                    echo "<td>" . $row["paterno"] . "</td>";
+                                    echo "<td>" . $row["materno"] . "</td>";
                                     echo "<td>" . $row["programa"] . "</td>";
                                     // echo "<td>" . $row["programa"] . "</td>";
 
@@ -130,10 +135,12 @@
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
-                                    echo "<td> # </td>";
+                                  //  echo "<td> # </td>";
                                     echo "<td>" . $row["id"] . "</td>";
                                     echo "<td>" . $row["dni"] . "</td>";
                                     echo "<td>" . $row["nombres"] . "</td>";
+                                    echo "<td>" . $row["paterno"] . "</td>";
+                                    echo "<td>" . $row["materno"] . "</td>";
                                     echo "<td>" . $row["programa"] . "</td>";
                                     // echo "<td>" . $row["programa"] . "</td>";
 
