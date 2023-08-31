@@ -81,30 +81,9 @@
 
 if(isset($_POST['filtrar'])  ) {
     $filtro_programa = $_POST['programa'];
-    $sql = "SELECT * FROM  alumnos programa_id = '$filtro_programa'";
-
-} elseif(isset($_POST['sortear']) &&isset($_POST['filtrar'])) {
-    $filtro_programa = $_POST['programa'];
-    $sql = "SELECT * FROM alumnos programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
 
 
-    
-} else {
-    $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni ";
-}
-
-    // if(isset($_POST['filtrar'])) {
-    //     $filtro_programa = $_POST['programa'];
-    //     $sql = "SELECT * FROM  alumnos a 
-    //     INNER JOIN  asistencia  asis  ON  a.dni = asis.dni
-    //     INNER JOIN program p ON a.programa_id = p.prog_id  WHERE a.programa_id = '$filtro_programa'";
-
-    // } elseif(isset($_POST['sortear']) && ($_POST['filtrar'])) {
-    //     $filtro_programa = $_POST['programa'];
-    //     $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni  WHERE programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
-    // } else {
-    //     $sql = "SELECT * FROM asistencia  asis INNER JOIN alumnos a ON asis.dni = a.dni ";
-    // }
+    $sql = "SELECT * FROM  alumnos where  programa_id = '$filtro_programa'";
 
     $result = $conn->query($sql);
 
@@ -121,6 +100,49 @@ if(isset($_POST['filtrar'])  ) {
     } else {
         echo "<tr><td colspan='3'>No se encontraron registros</td></tr>";
     }
+
+
+} elseif(isset($_POST['sortear']) ) {
+    $filtro_programa = $_POST['programa'];
+    $sql1 = "SELECT * FROM alumnos where  programa_id = '$filtro_programa' ORDER BY RAND() LIMIT 10";
+
+    $resulta = $conn->query($sql1);
+
+    if ($resulta->num_rows > 0) {
+        while ($row = $resulta->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td> # </td>";
+            echo "<td>" . $row["dni"] . "</td>";
+            echo "<td>" . $row["nombres"] . "</td>";
+            // echo "<td>" . $row["programa"] . "</td>";
+
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='3'>No se encontraron registros</td></tr>";
+    }
+
+
+    
+} 
+//else {
+//     $sql = "SELECT * FROM alumnos asis INNER JOIN alumnos a ON asis.dni = a.dni where  a.programa_id = '$filtro_programa' ";
+// }
+//     $result = $conn->query($sql);
+
+//     if ($result->num_rows > 0) {
+//         while ($row = $result->fetch_assoc()) {
+//             echo "<tr>";
+//             echo "<td> # </td>";
+//             echo "<td>" . $row["dni"] . "</td>";
+//             echo "<td>" . $row["nombres"] . "</td>";
+//             // echo "<td>" . $row["programa"] . "</td>";
+
+//             echo "</tr>";
+//         }
+//     } else {
+//         echo "<tr><td colspan='3'>No se encontraron registros</td></tr>";
+//     }
 
     $conn->close();
     ?>
